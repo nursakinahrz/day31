@@ -41,6 +41,61 @@ Gender: any;
      this.color = event.target.value;
       }
 
+      GetMoreEmployee() : void {
+        this.Employee = [
+          {
+            Name: 'Barney',
+            Age: '18',
+            Gender: 'M'
+          },{
+            Name: 'Z',
+            Age: '22',
+            Gender: 'F'
+          },{
+            Name: 'Sherlock',
+            Age: '25',
+            Gender: 'M'
+          },
+
+          {
+            Name: 'Ah Kaw',
+            Age: '15',
+            Gender: 'M'
+          },{
+            Name: 'Ah Meow',
+            Age: '22',
+            Gender: 'F'
+          },{
+            Name: 'Fred',
+            Age: '25',
+            Gender: 'M'
+          }
+        ] 
+
+
+      }
+
+      CheckAge (Age: number) {
+        let val = Age < 18 ? 'Under 18': 'Above 18';
+
+        switch(val) {
+
+          case 'Under 18':
+            return 'red';
+          case 'Above 18':
+            return 'green';
+        }
+
+        return 'black';
+
+      }
+
+      TrackByEmployeeName(index: number, employee:any) : string {
+        return employee.Name;
+
+      }
+
+
   // list of objects
    Employee: any[] = [];
 
@@ -49,7 +104,7 @@ Gender: any;
     this.Employee = [
       {
         Name: 'Ah Kaw',
-        Age: '21',
+        Age: '15',
         Gender: 'M'
       },{
         Name: 'Ah Meow',
@@ -61,9 +116,21 @@ Gender: any;
         Gender: 'M'
       }
     ] 
+   
+    }
 
-   }
+   
+    GetCSS (isEven: any) {
+      if (isEven) {
+        return "color1";
+      } else {
+        return "color2";
+      }
 
-  }
+      }
 
+    }
+ 
+    
 
+  

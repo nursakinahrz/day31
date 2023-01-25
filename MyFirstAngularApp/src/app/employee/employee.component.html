@@ -82,21 +82,61 @@
     </div>
 </div>
 
-<table>
+<!-- in-line css -->
+<table [ngStyle]="{'color' : 'red'}" border="1">
     <thead>
+        <th>S/No.</th>
         <th>Name</th>
         <th>Age</th>
         <th>Gender</th>
+        <th>First Record</th>
+        <th>Last Record</th>
      </thead>
 
     <tbody>
 
-        <!-- loop through the list -->
-        <tr *ngFor="let employee of Employee">
+        <!-- loop through the list using & ngStyle for the styling -->
+        <!-- <tr *ngFor="let employee of Employee; let i = index; first as isFirst; last as isLast; 
+        trackBy: TrackByEmployeeName; even as isEven, odd as isOdd"
+            [ngStyle]="{'color': (isEven)? 'green': 'orange'}">
+        <td>{{i + 1}}</td>
         <td>{{employee.Name}}</td>
-        <td>{{employee.Age}}</td>
+        <td [ngStyle]="{'color':CheckAge(employee.Age)}">{{employee.Age}}</td>
         <td>{{employee.Gender}}</td>
-    </tr>
+        <td>{{isFirst}}</td>
+        <td>{{isLast}}</td>
+    </tr> -->
+
+     <!-- using ngClass for the styling/ the best practice
+    <tr *ngFor="let employee of Employee; let i = index; first as isFirst; last as isLast; 
+        trackBy: TrackByEmployeeName; even as isEven, odd as isOdd"
+            [ngClass]="isEven?'color1':'color2'">
+        <td>{{i + 1}}</td>
+        <td>{{employee.Name}}</td>
+        <td [ngStyle]="{'color':CheckAge(employee.Age)}">{{employee.Age}}</td>
+        <td>{{employee.Gender}}</td>
+        <td>{{isFirst}}</td>
+        <td>{{isLast}}</td>
+    </tr> -->
+
+    <tr *ngFor="let employee of Employee; let i = index; first as isFirst; last as isLast; 
+    trackBy: TrackByEmployeeName; even as isEven, odd as isOdd"
+        [ngClass]="GetCSS(isEven)">
+    <td>{{i + 1}}</td>
+    <td>{{employee.Name | uppercase}}</td>
+    <td [ngStyle]="{'color':CheckAge(employee.Age)}">{{employee.Age}}</td>
+    <td>{{employee.Gender}}</td>
+    <td>{{isFirst}}</td>
+    <td>{{isLast}}</td>
+</tr>
+
+
 
     </tbody>
 </table>
+
+<br><br>
+<button (click)="GetMoreEmployee()">Add more employee</button>
+
+<!-- using the color from employee.component.css -->
+<p [ngClass]="'color1'">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quasi nemo eligendi dolore architecto, quas quo molestias possimus saepe voluptatem ratione sint odit quisquam, facere excepturi veritatis. Illum mollitia atque quisquam.</p>
