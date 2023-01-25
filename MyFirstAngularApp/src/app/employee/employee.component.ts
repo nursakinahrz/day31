@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+// import this 
+import { Employee } from '../models/employee';
 
 @Component({
   selector: 'app-employee',
@@ -21,6 +23,9 @@ color: any;
 Name: any;
 Age: any;
 Gender: any;
+// ShowSomeData: any;
+myName: string = "CoWorks";
+
 
   ShowContent(val1: number, val2: number) :boolean {
     if (val1 < val2) {
@@ -95,6 +100,9 @@ Gender: any;
 
       }
 
+      ShowSomeData () {
+
+      }
 
   // list of objects
    Employee: any[] = [];
@@ -129,6 +137,7 @@ Gender: any;
 
       }
 
+    
     }
  
     
