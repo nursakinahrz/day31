@@ -1,0 +1,102 @@
+<p>employee works!</p>
+
+<h1 *ngIf="(visible)">{{title}} </h1>
+
+<input type="radio" name="topgun" (click)="OnChange(true)">True
+
+<input type="radio" name="topgun" (click)="OnChange(false)">False
+
+<div *ngIf="IsVisible; then thenBlock; else elseBlock"></div>
+
+
+<ng-template #thenBlock>
+<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat, praesentium. Nulla minus eligendi deserunt ducimus optio ab iste consectetur magni facilis, repudiandae, maiores quis cupiditate ipsam blanditiis numquam temporibus. Quod?
+</p>
+</ng-template>
+
+<ng-template #elseBlock>
+<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam voluptas voluptate unde laudantium ratione dignissimos, magnam eius vero, quae veritatis quod hic sint corrupti consequatur soluta quis iste similique dolorum.</p>
+</ng-template>
+
+<!-- <p *ngIf="IsVisible">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quam possimus adipisci doloremque, totam id provident dolore sapiente nulla consectetur quaerat quia asperiores, impedit fugiat cupiditate maxime aliquam, repellendus magni. A?</p>
+
+<p *ngIf="!IsVisible">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum amet laboriosam dolore dicta alias illum libero culpa quia fuga eius ratione excepturi eveniet porro, possimus illo tempora eligendi aspernatur et?</p> -->
+
+<!-- dropdown selector -->
+<select (change)="SetColor($event)">
+    <option value="">----Select Color-----</option>
+    <option value="R">Red</option>
+    <option value="G">Green</option>
+    <option value="B">Blue</option>
+    <option value="O">Orange</option>
+    <option value="Y">Yellow</option>
+    <option value="V">Violet</option>
+</select>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'R'">
+        <p style="color: red;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'G'">
+        <p style="color: green;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'B'">
+        <p style="color: blue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'O'">
+        <p style="color: orange;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'Y'">
+        <p style="color: yellow;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchCase="'V'">
+        <p style="color: violet;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<div [ngSwitch]="color">
+    <div *ngSwitchDefault="'R'">
+        <p style="color: black;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis sunt cumque repudiandae possimus nam in quam aut tempore, consectetur officiis magni unde reiciendis aperiam dolores quisquam iste a assumenda quidem?</p>
+
+    </div>
+</div>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+     </thead>
+
+    <tbody>
+
+        <!-- loop through the list -->
+        <tr *ngFor="let employee of Employee">
+        <td>{{employee.Name}}</td>
+        <td>{{employee.Age}}</td>
+        <td>{{employee.Gender}}</td>
+    </tr>
+
+    </tbody>
+</table>
